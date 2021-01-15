@@ -12,7 +12,7 @@ export default class PlantList extends Component {
     //   - fetch data from the server endpoint - http://localhost:3333/plants
     axios.get("http://localhost:3333/plants")
       .then((res) => {
-        console.log("Plant List CDM Success: ", res.data.plantsData);
+        // console.log("Plant List CDM Success: ", res.data.plantsData);
         this.setState({
           //   - set the returned plants array to this.state.plantsData
           plants: res.data.plantsData
