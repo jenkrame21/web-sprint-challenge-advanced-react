@@ -4,6 +4,16 @@ import CheckoutForm from "./CheckoutForm";
 
 // Write up the two tests here and make sure they are testing what the title shows
 
-test("form header renders", () => {});
+test("Form Header Renders", () => {
+    render(<CheckoutForm />);
+});
 
-test("form shows success message on submit with form details", () => {});
+test("Form shows success message on submit with form details", () => {
+    // Arrange
+    render(<CheckoutForm />);
+
+    // Act
+
+    // Assert
+    
+});
