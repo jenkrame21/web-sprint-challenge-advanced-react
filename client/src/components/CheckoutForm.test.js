@@ -9,7 +9,7 @@ test("Form Header Renders", () => {
     render(<CheckoutForm />);
 });
 
-test("Form shows success message on submit with form details", () => {
+test("Form shows success message on submit with form details", async () => {
     // Arrange
     render(<CheckoutForm />);
 
@@ -30,12 +30,29 @@ test("Form shows success message on submit with form details", () => {
     userEvent.type(stateInput, "Florida");
     userEvent.type(zipcodeInput, "12345");
 
-    // 3. User clicks checkout button after filling input fields
+    // 3. Get checkout button through role
     const checkoutButton = screen.getByRole("button");
+
+    // 4. User clicks checkout button after filling input fields
     userEvent.click(checkoutButton);
 
-    // const successMessage = screen.getByDisplayValue()
+    // 5. Get TestId of successMessage
+    const successMessageTestId = screen.getByTestId("successMessage");
+    expect(successMessageTestId).toBeInTheDocument();
 
     // Assert
+    // 1. New full name input fields are on the screen
+    // First name and last name are in same p tag element
+    const newFullName = await screen.findByText("Jenn Kramer");
+    expect(newFullName).toBeInTheDocument();
+
+    // 2. New address input fields is on the screen
+    const newAddress = await screen.findByText(/124 whatever street/i);
+    expect(newAddress).toBeInTheDocument();
+
+    // 3. New city, state, and zip input fields are on the screen
+    // City, state, and zip are in same p tag element
+    const newCityStateZip = await screen.findByText(/sunshine city, florida 12345/i);
+    expect(newCityStateZip).toBeInTheDocument();
 
 });
