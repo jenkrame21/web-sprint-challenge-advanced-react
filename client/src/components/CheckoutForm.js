@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import useForm from '../hooks/useForm';
 
 const initialValue = {
@@ -63,7 +63,7 @@ const CheckoutForm = () => {
       {showSuccessMessage && (
         <div className="success-message" data-testid="successMessage">
           <p>
-            You have ordered some plants! Woo-hoo! <span role="img">🎉</span>
+            You have ordered some plants! Woo-hoo! <span role="img" aria-label="confetti">🎉</span>
           </p>
           <p>Your new green friends will be shipped to:</p>
           <br />
